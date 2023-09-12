@@ -1,0 +1,64 @@
+.page__profile {
+  max-width: 410px;
+  margin: 0 auto;
+  padding-top: 74px;
+}
+
+@media screen and (max-width: 768px) {
+  .page__profile {
+    padding-top: 236px;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .page__profile {
+    max-width: 260px;
+    padding-top: 70px;
+  }
+}
+
+.profile__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0 0 123px 0;
+  text-align: center;
+  color: var(--main-font-color);
+}
+
+@media screen and (max-width: 768px) {
+  .profile__title {
+    margin-bottom: 95px;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .profile__title {
+    margin-bottom: 79px;
+  }
+}
+
+.profile__link {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  display: block;
+  margin-top: 16px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #ee3465;
+  transition: opacity 0.3s linear;
+}
+
+@media screen and (max-width: 525px) {
+  .profile__link {
+    font-size: 12px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .profile__link:hover {
+    opacity: 0.7;
+  }
+}
