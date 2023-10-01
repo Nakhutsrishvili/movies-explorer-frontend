@@ -1,14 +1,14 @@
 .login__error-request {
-  display: block;
   visibility: hidden;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 400;
+  display: block;
   width: 100%;
   min-height: 14px;
   margin-top: 117px;
-  color: #ff004c;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
   line-height: normal;
+  color: #ff004c;
 }
 
 @media screen and (max-width: 525px) {
@@ -32,14 +32,14 @@
 }
 
 .login__submit {
-  font-size: 14px;
-  font-weight: 500;
-  margin-top: 20px;
   padding: 0;
+  margin-top: 20px;
   border: none;
   border-radius: 3px;
   width: 100%;
   min-height: 45px;
+  font-size: 14px;
+  font-weight: 500;
   line-height: normal;
   color: var(--main-font-color);
   background-color: #4285f4;
@@ -66,15 +66,15 @@
 }
 
 .profile__error-request {
-  font-size: 11px;
-  font-weight: 400;
   visibility: hidden;
   display: block;
   margin: 166px 0 0 0;
   min-height: 14px;
   text-align: center;
-  color: #ff004c;
+  font-size: 11px;
+  font-weight: 400;
   line-height: normal;
+  color: #ff004c;
 }
 
 @media screen and (max-width: 768px) {
@@ -89,13 +89,16 @@
   }
 }
 
-.profile__error-request_active {
+.profile__error-request_type_error {
   visibility: visible;
 }
 
+.profile__error-request_type_success {
+  visibility: visible;
+  color: var(--secondary-font-color);
+}
+
 .profile__submit {
-  font-size: 13px;
-  font-weight: 400;
   display: block;
   width: 100%;
   margin-top: 20px;
@@ -103,6 +106,8 @@
   border: none;
   background-color: transparent;
   text-align: center;
+  font-size: 13px;
+  font-weight: 400;
   line-height: normal;
   color: var(--main-font-color);
   cursor: pointer;
@@ -119,4 +124,9 @@
   .profile__submit:hover {
     opacity: 0.7;
   }
+}
+
+.profile__submit_disabled {
+  color: var(--secondary-font-color);
+  pointer-events: none;
 }

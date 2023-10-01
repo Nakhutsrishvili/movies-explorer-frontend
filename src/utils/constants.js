@@ -1,181 +1,24 @@
-import img from '../images/pic__COLOR_pic.png'
-export const movies = [
-  {
-    id: 1,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 2,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 3,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 4,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 5,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 6,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 7,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 8,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 9,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 10,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 11,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 12,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 13,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 14,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 15,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 16,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 17,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 18,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 19,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 20,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 21,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 22,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-]
-
-export const saveMovies = [
-  {
-    id: 1,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 2,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-  {
-    id: 3,
-    name: 'В погоне за Бенкси',
-    image: img,
-    duration: 40,
-    trailerLink: "https://www.youtube.com/",
-  },
-]
+const EmailRegex = "^\\S+@\\S+\\.\\S+$";
+const MaxScreen = 1280;
+const MediumScreen = 1024;
+const SmallScreen = 650;
+const InitMoreMaxScreen = 16;
+const InitLessMaxScreen = 12;
+const InitMediumScreen = 8;
+const InitSmallScreen = 5;
+const StepMaxScreen = 4;
+const StepMediumScreen = 3;
+const StepSmallScreen = 2;
+export {
+  EmailRegex,
+  MaxScreen,
+  MediumScreen,
+  SmallScreen,
+  InitMoreMaxScreen,
+  InitLessMaxScreen,
+  InitMediumScreen,
+  InitSmallScreen,
+  StepMaxScreen,
+  StepMediumScreen,
+  StepSmallScreen,
+};

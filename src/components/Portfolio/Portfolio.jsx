@@ -31,7 +31,7 @@ export default function Portfolio() {
             </li>
             <li className="portfolio__list">
               <Link
-                to={"https://react-mesto-auth-p3ir.vercel.app/sign-in"}
+                to={"https://react-mesto-auth-p3ir.vercel.app/"}
                 target="_blank"
                 className="portfolio__link portfolio__link_type_last"
               >

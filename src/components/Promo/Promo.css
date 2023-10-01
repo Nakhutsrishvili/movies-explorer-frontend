@@ -41,20 +41,20 @@
 }
 
 .promo__title {
+  margin: 0 0 36px 0;
   font-size: 50px;
   font-weight: 400;
   line-height: 58px;
-  margin: 0 0 36px 0;
   color: var(--main-font-color);
 }
 
 @media screen and (max-width: 1023px) {
   .promo__title {
+    text-align: center;
+    margin-bottom: 22px;
     font-size: 40px;
     font-weight: 400;
     line-height: 50px;
-    text-align: center;
-    margin-bottom: 22px;
   }
 }
 
@@ -68,12 +68,12 @@
 }
 
 .promo__subtitle {
-  font-size: 13px;
-  font-weight: 400;
-  line-height: normal;
   margin: 0;
   margin-bottom: 146px;
   max-width: 310px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
   color: rgba(255, 255, 255, 0.5);
 }
 

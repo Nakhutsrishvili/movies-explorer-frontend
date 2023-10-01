@@ -1,8 +1,8 @@
 .error {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
   align-items: center;
 }
 
@@ -23,12 +23,12 @@
 }
 
 .error__title {
-  font-size: 140px;
-  font-weight: 400;
   margin: 0 0 5px 0;
   text-align: center;
-  color: var(--main-font-color);
+  font-size: 140px;
+  font-weight: 400;
   line-height: normal;
+  color: var(--main-font-color);
 }
 
 @media screen and (max-width: 525px) {
@@ -39,12 +39,12 @@
 }
 
 .error__text {
-  font-size: 16px;
-  font-weight: 400;
   margin: 0 0 184px 0;
   text-align: center;
-  color: var(--main-font-color);
+  font-size: 16px;
+  font-weight: 400;
   line-height: normal;
+  color: var(--main-font-color);
 }
 
 @media screen and (max-width: 525px) {

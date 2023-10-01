@@ -1,8 +1,8 @@
 .page__header {
-  padding: 0 70px;
   display: flex;
   justify-content: space-between;
   background-color: var(--secondary-color);
+  padding: 0 70px;
 }
 
 @media screen and (max-width: 1023px) {
@@ -25,9 +25,9 @@
 
 .header__link-home {
   display: block;
+  margin: 18px 0;
   width: 38px;
   height: 38px;
-  margin: 18px 0;
   background-image: url("../../images/logo.svg");
   transition: opacity 0.3s linear;
 }
@@ -47,14 +47,14 @@
 }
 
 .header__signup {
+  margin-right: 30px;
+  text-decoration: none;
   font-family: Inter;
   font-weight: 500;
   font-size: 12px;
-  margin-right: 30px;
-  text-decoration: none;
   line-height: 16px;
-  transition: opacity 0.3s linear;
   color: var(--main-font-color);
+  transition: opacity 0.3s linear;
 }
 
 @media screen and (max-width: 767px) {
@@ -65,9 +65,6 @@
 }
 
 .header__signin {
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 12px;
   text-align: center;
   padding-top: 8px;
   background-color: #3ddc84;
@@ -77,6 +74,9 @@
   min-height: 32px;
   box-sizing: border-box;
   text-decoration: none;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 12px;
   line-height: 16px;
   color: #000000;
   transition: opacity 0.3s linear;
@@ -98,8 +98,8 @@
 
 @media screen and (max-width: 768px) {
   .header__nav {
-    position: fixed;
     visibility: hidden;
+    position: fixed;
     top: 0;
     right: 0;
     width: 0;
@@ -122,23 +122,23 @@
 
 @media screen and (max-width: 768px) {
   .header__links-container_type_page {
-    display: flex;
-    flex-direction: column;
     box-sizing: border-box;
     width: 520px;
     height: 100vh;
     padding-top: 159px;
     padding-bottom: 90px;
-    background-color: #202020;
+    display: flex;
+    flex-direction: column;
     margin: 0 0 0 auto;
+    background-color: #202020;
   }
 }
 
 @media screen and (max-width: 525px) {
   .header__links-container_type_page {
+    width: 100%;
     padding-top: 144px;
     padding-bottom: 46px;
-    width: 100%;
   }
 }
 
@@ -148,8 +148,8 @@
 
 @media screen and (max-width: 768px) {
   .header__link-container:last-of-type {
-    display: flex;
     flex: 1;
+    display: flex;
   }
 }
 
@@ -198,9 +198,9 @@
 }
 
 .header__link {
+  text-decoration: none;
   font-size: 13px;
   font-weight: 400;
-  text-decoration: none;
   line-height: 18px;
   color: var(--main-font-color);
   transition: opacity 0.3s linear;
@@ -242,8 +242,8 @@
 }
 
 .header__acc-icon {
-  height: 26px;
   width: 26px;
+  height: 26px;
   margin-left: 7px;
   border-radius: 50%;
   background-color: #313131;
@@ -254,9 +254,9 @@
 
 .header__burger {
   display: none;
+  margin-top: 15px;
   width: 44px;
   height: 44px;
-  margin-top: 15px;
   border: none;
   padding: 0;
   background-color: transparent;
@@ -279,8 +279,8 @@
 
 .header__burger-close {
   display: none;
-  height: 30px;
   width: 30px;
+  height: 30px;
   padding: 0;
   border: none;
   background-color: transparent;
