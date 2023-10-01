@@ -7,4 +7,4 @@
 ## Ссылка на для фронтэнда:
 * https://nodari-diploma.nomoredomainsicu.ru
 ## Ссылка на пулреквест:
-* https://
+* https://github.com/Nakhutsrishvili/movies-explorer-frontend/pull/2#issue-1920716624
