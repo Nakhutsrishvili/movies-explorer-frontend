@@ -137,7 +137,6 @@ function App() {
       });
   }
 
-  //login user
   function handleLogin(email, password) {
     setIsLoading(true);
 

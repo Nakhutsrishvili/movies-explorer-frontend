@@ -1,5 +1,6 @@
-export const MOVIESURL = "https://api.nomoreparties.co";
 export const BASEURL = "https://api.nodari-diploma.nomoredomainsicu.ru";
+export const MOVIESURL = "https://api.nomoreparties.co";
+
 
 export const MOVIES_DEFAULT = 12;
 export const MOVIES_AT_DESKTOP = 12;
