@@ -7,4 +7,4 @@
 ## Ссылка на Фронтэнд проекта:
 * https://nodari-diploma.nomoredomainsrocks.ru
 ## Ссылка на Pull requests проекта:
-* 
+* https://github.com/Nakhutsrishvili/movies-explorer-frontend/pull/3#issue-1943457647
