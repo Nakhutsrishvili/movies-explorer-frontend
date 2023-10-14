@@ -1,108 +1,107 @@
-class ApiMain {
-  constructor(options) {
-    this._url = options.baseUrl;
+import { BASEURL } from "./config";
+import Api from "./Api";
+
+class MainApi extends Api {
+  constructor({ baseUrl, headers }) {
+    super({ baseUrl });
+    this._headers = headers;
   }
 
-  _checkResponse(res) {
-    return res.ok ? res.json() : Promise.reject(res.status);
-  }
-
-  _request(url, options) {
-    return fetch(`${this._url}${url}`, options).then(this._checkResponse);
-  }
-
-  registration(username, email, password) {
-    return this._request("/signup", {
+  register(name, email, password) {
+    return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: this._headers,
       body: JSON.stringify({
-        name: username,
+        name: name,
         email: email,
         password: password,
       }),
-    });
+    }).then(this._checkResult);
   }
 
-  authorization(email, password) {
-    return this._request("/signin", {
+  loginUser(email, password) {
+    return fetch(`${this._baseUrl}/signin`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: this._headers,
       body: JSON.stringify({
-        email: email,
         password: password,
+        email: email,
       }),
-    });
+    }).then(this._checkResult);
   }
 
-  getUserData(token) {
-    return this._request("/users/me", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+  updateToken() {
+    this._headers = {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    };
   }
 
-  setUserInfo(username, email, token) {
-    return this._request("/users/me", {
+  getUserInfo() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "GET",
+      headers: this._headers,
+    }).then(this._checkResult);
+  }
+
+  updateUserInfo(name, email) {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
+      headers: this._headers,
       body: JSON.stringify({
-        name: username,
+        name: name,
         email: email,
       }),
-    });
+    }).then(this._checkResult);
   }
 
-  getMovies(token) {
-    return this._request("/movies", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  }
-
-  addMovie(data, token) {
-    return this._request("/movies", {
+  saveMovie(movie) {
+    return fetch(`${this._baseUrl}/movies`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
+      headers: this._headers,
       body: JSON.stringify({
-        country: data.country,
-        director: data.director,
-        duration: data.duration,
-        description: data.description,
-        year: data.year,
-        image: `https://api.nomoreparties.co${data.image.url}`,
-        trailerLink: data.trailerLink,
-        thumbnail: `https://api.nomoreparties.co${data.image.formats.thumbnail.url}`,
-        movieId: data.id,
-        nameRU: data.nameRU,
-        nameEN: data.nameEN,
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `https://api.nomoreparties.co/${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        thumbnail: `https://api.nomoreparties.co/${movie.image.url}`,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
       }),
-    });
+    }).then(this._checkResult);
   }
 
-  deleteMovie(cardId, token) {
-    return this._request(`/movies/${cardId}`, {
+  deleteMovie(id) {
+    return fetch(`${this._baseUrl}/movies/${id}`, {
       method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+      headers: this._headers,
+    }).then(this._checkResult);
+  }
+
+  getSavedMovies() {
+    return fetch(`${this._baseUrl}/movies`, {
+      method: "GET",
+      headers: this._headers,
+    }).then(this._checkResult);
+  }
+
+  logoutUser() {
+    return fetch(`${this._baseUrl}/signout`, {
+      method: "GET",
+      headers: this._headers,
+    }).then(this._checkResult);
   }
 }
 
-const apiMain = new ApiMain({
-  baseUrl: "https://api.nodari-diploma.nomoredomainsicu.ru",
+const mainApi = new MainApi({
+  baseUrl: BASEURL,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
-export default apiMain;
+export default mainApi;

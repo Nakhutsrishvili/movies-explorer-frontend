@@ -1,0 +1,40 @@
+.section {
+  box-sizing: border-box;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.section__header {
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 23px;
+}
+
+.section__title {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    padding-left: 50px;
+    padding-right: 50px;
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section {
+    padding-left: 18px;
+    padding-right: 18px;
+    max-width: 550px;
+  }
+  .section__title {
+    line-height: 22px;
+    font-size: 18px;
+  }
+}

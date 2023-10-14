@@ -1,90 +1,59 @@
-.search__label-container {
+.checkbox-content {
   display: flex;
-  align-self: flex-start;
-  cursor: pointer;
-  transition: opacity 0.3s linear;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  background: #202020;
 }
 
-@media screen and (max-width: 768px) {
-  .search__label-container {
-    align-self: flex-end;
-    flex-direction: row-reverse;
-  }
-}
-
-@media screen and (max-width: 525px) {
-  .search__label-container {
-    align-self: center;
-  }
-}
-
-.search__label-containe_disabled {
-  pointer-events: none;
-}
-
-.search__input-container {
-  position: relative;
-}
-
-.search__check-text {
-  padding-top: 3px;
-  margin-left: 14px;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 18px;
-  color: var(--main-font-color);
-}
-
-@media screen and (max-width: 768px) {
-  .search__check-text {
-    margin-left: 0;
-    margin-right: 14px;
-  }
-}
-
-@media screen and (max-width: 525px) {
-  .search__check-text {
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 18px;
-    margin-right: 9px;
-  }
-}
-
-.search__ckeck {
-  visibility: hidden;
+.checkbox-content__label {
   width: 36px;
   height: 20px;
+  background: #3ddc84;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
-.search__check-svg {
+.checkbox-content__input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-content__text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ffffff;
+  margin-left: 12px;
+}
+
+.checkbox-content__label .checkbox-content__switch-button {
+  width: 16px;
+  height: 16px;
+  content: "";
   position: absolute;
   top: 2px;
-  left: 0;
+  left: 2px;
+  border-radius: 45px;
+  transition: 0.2s;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 }
 
-.search__check-svg-circle {
-  transition: all 0.3s linear;
+.checkbox-content__input:checked
+  + .checkbox-content__label
+  .checkbox-content__switch-button {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
 }
 
-.search__check-svg-circle_active {
-  fill: #a0a0a0;
-  transform: translateX(-15px);
-}
-
-.search__check-svg-rect {
-  border-radius: 10px;
-  width: 36px;
-  height: 20px;
-  transition: all 0.3s linear;
-}
-
-.search__check-svg-rect_active {
-  fill: #343434;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .search__label-container:hover {
-    opacity: 0.7;
-  }
+.checkbox-content__label:active .checkbox-content__switch-button {
+  width: 60px;
 }

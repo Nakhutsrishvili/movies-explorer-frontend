@@ -1,23 +1,20 @@
-class ApiMovies {
-  constructor(options) {
-    this._url = options.baseUrl;
-  }
+import { MOVIESURL } from "./config";
+import Api from "./Api";
 
-  _checkResponse(res) {
-    return res.ok ? res.json() : Promise.reject;
-  }
-
-  _request(url, options) {
-    return fetch(`${this._url}${url}`, options).then(this._checkResponse);
+class MoviesApi extends Api {
+  constructor({ baseUrl }) {
+    super({ baseUrl });
   }
 
   getMovies() {
-    return this._request("/");
+    return fetch(`${this._baseUrl}/beatfilm-movies`, {
+      method: "GET",
+    }).then(super._checkResult);
   }
 }
 
-const apiMovies = new ApiMovies({
-  baseUrl: "https://api.nomoreparties.co/beatfilm-movies",
+const moviesApi = new MoviesApi({
+  baseUrl: MOVIESURL,
 });
 
-export default apiMovies;
+export default moviesApi;

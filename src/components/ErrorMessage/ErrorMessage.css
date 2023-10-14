@@ -1,0 +1,8 @@
+.error-message {
+  visibility: hidden;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ff0000;
+  margin: 0px, 22px, 0px, 22px;
+}
