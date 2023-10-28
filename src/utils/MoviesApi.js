@@ -1,20 +1,14 @@
-import { MOVIESURL } from "./config";
-import Api from "./Api";
+import { BASE_URL_MOVIES, PATH } from './constants';
+import { isOk } from './utils';
 
-class MoviesApi extends Api {
-  constructor({ baseUrl }) {
-    super({ baseUrl });
-  }
+const getMovies = async () => {
+  const res = await fetch(`${BASE_URL_MOVIES}${PATH.BEATFILM}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const data = await isOk(res);
+  return data;
+};
 
-  getMovies() {
-    return fetch(`${this._baseUrl}/beatfilm-movies`, {
-      method: "GET",
-    }).then(super._checkResult);
-  }
-}
-
-const moviesApi = new MoviesApi({
-  baseUrl: MOVIESURL,
-});
-
-export default moviesApi;
+export { getMovies };

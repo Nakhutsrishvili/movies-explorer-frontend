@@ -1,0 +1,30 @@
+.movies__like-icon {
+  padding: 0;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: url(../../images/like.svg);
+  background-position: center;
+  background-color: var(--like);
+  background-repeat: no-repeat;
+  align-self: center;
+  transition: opacity 0.5s linear;
+  grid-area: button;
+}
+
+.movies__like-icon_delete {
+  background-image: url(../../images/delete.svg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .movies__like-icon:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+}
+
+.movies__like-icon_active {
+  background-image: url(../../images/like-active.svg);
+  background-color: var(--main);
+}

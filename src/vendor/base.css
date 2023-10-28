@@ -1,0 +1,28 @@
+.page {
+  font-family: "Inter", Arial, sans-serif;
+  background-color: var(--light);
+  text-rendering: optimizeLegibility;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button-hover:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link-hover:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .input-hover:hover {
+    opacity: 0.7;
+  }
+}

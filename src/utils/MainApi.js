@@ -1,107 +1,96 @@
-import { BASEURL } from "./config";
-import Api from "./Api";
+import { BASE_URL, PATH } from './constants';
+import { isOk } from './utils';
 
-class MainApi extends Api {
-  constructor({ baseUrl, headers }) {
-    super({ baseUrl });
-    this._headers = headers;
-  }
+const getMovies = async () => {
+  const res = await fetch(`${BASE_URL}${PATH.MOVIES}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.jwt}`,
+    },
+  });
+  const data = await isOk(res);
+  return data;
+};
 
-  register(name, email, password) {
-    return fetch(`${this._baseUrl}/signup`, {
-      method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        password: password,
-      }),
-    }).then(this._checkResult);
-  }
+const register = async (name, email, password) => {
+  const res = await fetch(`${BASE_URL}${PATH.REGISTRATION}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name, email, password }),
+  });
+  const data = await isOk(res);
+  return data;
+};
 
-  loginUser(email, password) {
-    return fetch(`${this._baseUrl}/signin`, {
-      method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({
-        password: password,
-        email: email,
-      }),
-    }).then(this._checkResult);
-  }
+const authorize = async (email, password) => {
+  const res = await fetch(`${BASE_URL}${PATH.LOGIN}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
+  const data = await isOk(res);
+  return data;
+};
 
-  updateToken() {
-    this._headers = {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-      "Content-Type": "application/json",
-    };
-  }
+const checkToken = async () => {
+  const res = await fetch(`${BASE_URL}${PATH.USER_INFO}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.jwt}`,
+    },
+  });
+  const data = await isOk(res);
+  return data;
+};
 
-  getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: "GET",
-      headers: this._headers,
-    }).then(this._checkResult);
-  }
+const setUserInfo = async (name, email) => {
+  const res = await fetch(`${BASE_URL}${PATH.USER_INFO}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.jwt}`,
+    },
+    body: JSON.stringify({ name, email }),
+  });
+  const data = await isOk(res);
+  return data;
+};
 
-  updateUserInfo(name, email) {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify({
-        name: name,
-        email: email,
-      }),
-    }).then(this._checkResult);
-  }
+const addMovies = async (movie) => {
+  const res = await fetch(`${BASE_URL}${PATH.MOVIES}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.jwt}`,
+    },
+    body: JSON.stringify(movie),
+  });
+  const data = await isOk(res);
+  return data;
+};
 
-  saveMovie(movie) {
-    return fetch(`${this._baseUrl}/movies`, {
-      method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({
-        country: movie.country,
-        director: movie.director,
-        duration: movie.duration,
-        year: movie.year,
-        description: movie.description,
-        image: `https://api.nomoreparties.co/${movie.image.url}`,
-        trailerLink: movie.trailerLink,
-        thumbnail: `https://api.nomoreparties.co/${movie.image.url}`,
-        movieId: movie.id,
-        nameRU: movie.nameRU,
-        nameEN: movie.nameEN,
-      }),
-    }).then(this._checkResult);
-  }
+const deleteMovies = async (id) => {
+  const res = await fetch(`${BASE_URL}${PATH.MOVIES}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.jwt}`,
+    },
+  });
+  const data = await isOk(res);
+  return data;
+};
 
-  deleteMovie(id) {
-    return fetch(`${this._baseUrl}/movies/${id}`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then(this._checkResult);
-  }
-
-  getSavedMovies() {
-    return fetch(`${this._baseUrl}/movies`, {
-      method: "GET",
-      headers: this._headers,
-    }).then(this._checkResult);
-  }
-
-  logoutUser() {
-    return fetch(`${this._baseUrl}/signout`, {
-      method: "GET",
-      headers: this._headers,
-    }).then(this._checkResult);
-  }
-}
-
-const mainApi = new MainApi({
-  baseUrl: BASEURL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-
-export default mainApi;
+export {
+  register,
+  authorize,
+  addMovies,
+  checkToken,
+  getMovies,
+  deleteMovies,
+  setUserInfo,
+};

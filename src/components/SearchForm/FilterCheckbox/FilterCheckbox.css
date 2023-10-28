@@ -1,0 +1,49 @@
+.form__input_short {
+  cursor: pointer;
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background-color: var(--checkbox);
+  border-radius: 10px;
+  appearance: none;
+  padding: 0;
+  transition: all 0.5s linear;
+}
+
+.form__label_short {
+  cursor: pointer;
+  display: flex;
+  margin: 29px auto 0;
+  line-height: 18px;
+  justify-content: center;
+  gap: 0 12px;
+  padding-left: 12px;
+}
+
+.form__input_short::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  left: 6px;
+  top: 6px;
+  background-color: var(--background-second);
+  transition: transform 0.5s linear;
+}
+
+.form__input_short:checked {
+  background-color: var(--main);
+}
+
+.form__input_short:checked::before {
+  transform: translateX(16px);
+}
+
+@media (max-width: 520px) {
+  .form__label_short {
+    font-size: 11px;
+    gap: 0 13px;
+    margin-top: 42px;
+  }
+}

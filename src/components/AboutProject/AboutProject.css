@@ -1,162 +1,126 @@
-.about-project {
-  text-rendering: optimizeLegibility;
-  padding: 110px 70px 110px 70px;
-  background: #202020;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  font-family: "Inter", Arial, "sans-serif";
-  font-style: normal;
+.project__container {
+  padding: 111px 70px 110px;
 }
 
-.about-project__containers {
-  display: flex;
-  flex-direction: row;
+.project__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   margin-top: 70px;
-  gap: 70px;
+  margin-bottom: 110px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr;
 }
 
-.about-project__info {
-  display: flex;
-  flex-direction: column;
-  gap: 110px;
-}
-
-.about-project__subtitle {
-  letter-spacing: -0.04em;
-  color: #ffffff;
-  margin: 0 auto;
-  font-weight: 400;
+.project__title {
   font-size: 20px;
-  line-height: 24px;
-}
-
-.about-project__time {
-  display: flex;
-  flex-direction: row;
-}
-
-.about-project__backend {
-  background-color: #3ddc84;
-  width: 228px;
-  height: 36px;
-}
-
-.about-project__text {
-  margin: 0 auto;
-  margin-top: 26px;
-  max-width: 550px;
   font-weight: 400;
+  letter-spacing: -0.8px;
+  line-height: normal;
+  margin: 0 0 26px;
+}
+
+.project__description {
   font-size: 14px;
   line-height: 20px;
-  color: #ffffff;
+  margin: 0;
 }
 
-.about-project__time-text {
-  font-weight: 400;
+.project__list_duration {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 228px 1fr;
+  text-align: center;
   font-size: 14px;
-  line-height: 17px;
-  margin: 0 auto;
+  line-height: normal;
+  gap: 0;
+}
+
+.project__time {
+  background-color: var(--background-main);
   padding: 9px 14px;
-  text-align: center;
-  color: #000000;
+  margin: 0;
+  line-height: 18px;
+
 }
 
-.about-project__frontend {
-  background-color: #303030;
-  width: 912px;
-  height: 36px;
+.project__time_first {
+  background-color: var(--main);
 }
 
-.about-project__time-note {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  margin: 0 auto;
+.project__text {
+  color: var(--medium-text);
+  margin: 0;
   margin-top: 14px;
-  color: #8b8b8b;
 }
 
-.about-project__accent {
-  color: #ffffff;
-}
-
-@media screen and (max-width: 940px) {
-  .about-project {
-    padding: 90px 50px 90px 50px;
+@media (max-width:920px) {
+  .project__container {
+    padding: 91px 50px 90px;
   }
 
-  .about-project__text {
-    max-width: 319px;
+  .project__list {
+    gap: 30px;
+    margin-bottom: 94px;
+  }
+
+  .project__list_duration {
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    margin-bottom: 0;
+  }
+
+  .project__title {
+    margin-bottom: 21px;
+  }
+
+  .project__description {
     font-size: 12px;
     line-height: 18px;
-    margin-top: 22px;
-    text-align: start;
-  }
-
-  .about-project__containers {
-    gap: 90px;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .about-project {
-    max-width: 768px;
-    padding: 90px 50px 90px 50px;
-  }
-  .about-project__containers {
-    gap: 30px;
+@media (max-width: 520px) {
+  .project__container {
+    padding: 71px 18px;
   }
 
-  .about-project__info {
-    gap: 93px;
-  }
-
-  .about-project__frontend {
-    width: 528px;
-  }
-
-  .about-project__backend {
-    width: 140px;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .about-project {
-    padding: 70px 18px 70px 18px;
-  }
-
-  .about-project__containers {
-    flex-direction: column;
-    margin-top: 60px;
+  .project__list {
     gap: 56px;
+    margin: 60px 0;
+    display: flex;
+    flex-direction: column;
   }
 
-  .about-project__info {
-    justify-content: center;
-    align-items: center;
+  .project__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    margin-bottom: 16px;
+    line-height: 22px;
   }
 
-  .about-project__textt {
+  .project__description {
     font-size: 11px;
     line-height: 16px;
     margin: 0;
-    margin-top: 16px;
   }
 
-  .about-project__subtitle {
-    line-height: 22px;
-    font-size: 18px;
+  .project__list_duration {
+    grid-template-columns: 100px 1fr;
+    margin-bottom: 0;
+    font-size: 11px;
+    line-height: 13px;
+    display: grid;
+    gap: 0;
   }
 
-  .about-project__frontend {
-    width: 184px;
+  .project__time {
+    padding: 11px 10px;
+    line-height: 13px;
   }
 
-  .about-project__backend {
-    width: 100px;
+  .project__text {
+    margin-top: 10px;
   }
 }
