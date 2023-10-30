@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
-import useFormValidation from '../../hooks/useForm';
-import './Login.css';
-import Auth from '../Auth/Auth';
-import { useState } from 'react';
+import { Link } from "react-router-dom";
+import useFormValidation from "../../hooks/useForm";
+import "./Login.css";
+import Auth from "../Auth/Auth";
+import { useState } from "react";
 
-const Login = ({ isLoading, isCheckToken, handleLogin, errorMessage }) => {
-  const [values, setValues] = useState({ email: '', password: '' });
+const Login = ({ handleLogin }) => {
+  const [values, setValues] = useState({ email: "", password: "" });
   const { errors, isValid, isInputValid, handleChange } = useFormValidation(
     values,
     setValues
@@ -17,20 +17,20 @@ const Login = ({ isLoading, isCheckToken, handleLogin, errorMessage }) => {
   };
 
   return (
-    <section className='auth'>
-      <h1 className='auth__title'>Рады видеть!</h1>
+    <section className="auth">
+      <h1 className="auth__title">Рады видеть!</h1>
       <Auth
         values={values}
         errors={errors}
         isValid={isValid}
         isInputValid={isInputValid}
         handleChange={handleChange}
-        titleButton='Войти'
+        titleButton="Войти"
         onSubmit={onSubmit}
       />
-      <p className='auth__text'>
-        Ещё не зарегистрированы?{' '}
-        <Link className='auth__link link-hover' to='/signup'>
+      <p className="auth__text">
+        Ещё не зарегистрированы?&ensp;
+        <Link className="auth__link link-hover" to="/signup">
           Регистрация
         </Link>
       </p>

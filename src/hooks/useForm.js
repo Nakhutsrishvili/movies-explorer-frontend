@@ -1,6 +1,7 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
-import CurrentUserContext from '../contexts/CurrentUserContext';
-import { useLocation } from 'react-router-dom';
+import { useCallback, useContext, useEffect, useState } from "react";
+import CurrentUserContext from "../contexts/CurrentUserContext";
+import { useLocation } from "react-router-dom";
+import { EMAIL_REGEX, MESSAGE, NAME_REGEX } from "../utils/constants";
 
 export default function useForm(values, setValues) {
   const [errors, setErrors] = useState({});
@@ -19,23 +20,44 @@ export default function useForm(values, setValues) {
     const type = evt.target.type;
 
     setIsInputValid((oldValid) => {
-      return { ...oldValid, [name]: valid };
+      if (type === "email" && !EMAIL_REGEX.test(value)) {
+        return { ...oldValid, [name]: false };
+      } else if (name === "forename" && !NAME_REGEX.test(value)) {
+        return { ...oldValid, [name]: false };
+      } else {
+        return { ...oldValid, [name]: valid };
+      }
     });
 
     setValues((oldValues) => {
-      if (type === 'checkbox') {
+      if (type === "checkbox") {
         return { ...oldValues, [name]: checked };
       }
       return { ...oldValues, [name]: value };
     });
 
     setErrors((oldErrors) => {
-      return { ...oldErrors, [name]: validationMessage };
+      if (type === "email" && !EMAIL_REGEX.test(value)) {
+        return { ...oldErrors, [name]: MESSAGE.EMAIL_ER };
+      } else if (name === "forename" && !NAME_REGEX.test(value)) {
+        return { ...oldErrors, [name]: MESSAGE.NAME_ER };
+      } else {
+        return { ...oldErrors, [name]: validationMessage };
+      }
     });
 
-    setIsValid(form.checkValidity());
+    setIsValid(() => {
+      if (
+        (type === "email" && !EMAIL_REGEX.test(value)) ||
+        (name === "forename" && !NAME_REGEX.test(value))
+      ) {
+        return false;
+      } else {
+        return form.checkValidity();
+      }
+    });
   }
-console.log(isValid);
+
   const reset = useCallback((data = {}) => {
     setValues(data);
     setErrors({});
@@ -44,7 +66,7 @@ console.log(isValid);
   }, []);
 
   useEffect(() => {
-    if (pathname === '/profile') {
+    if (pathname === "/profile") {
       setValues((values) => ({
         ...values,
         forename: currentUser.forename,
