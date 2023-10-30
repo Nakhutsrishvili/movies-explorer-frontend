@@ -8,7 +8,7 @@ export default function useForm(values, setValues) {
   const [isValid, setIsValid] = useState(false);
   const [isInputValid, setIsInputValid] = useState({});
   const currentUser = useContext(CurrentUserContext);
-  const { pathname } = useLocation();
+ const { pathname } = useLocation();
 
   function handleChange(evt) {
     const name = evt.target.name;
@@ -64,16 +64,6 @@ export default function useForm(values, setValues) {
     setIsValid(false);
     setIsInputValid({});
   }, []);
-
-  useEffect(() => {
-    if (pathname === "/profile") {
-      setValues((values) => ({
-        ...values,
-        forename: currentUser.forename,
-        email: currentUser.email,
-      }));
-    }
-  }, [currentUser]);
 
   return {
     values,

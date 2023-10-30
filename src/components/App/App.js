@@ -156,7 +156,7 @@ function App() {
     setIsSend(true);
     try {
       const res = await mainApi.setUserInfo(values.forename, values.email);
-      setCurrentUser({ forename: res.name, ...res });
+      setCurrentUser({ forename: res.name, email: res.email });
       setFormActive(false);
       setIsSuccessful(true);
     } catch (err) {
