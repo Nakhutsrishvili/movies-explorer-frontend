@@ -23,7 +23,7 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [messageError, setMessageError] = useState('');
   const [isFormActive, setFormActive] = useState(false);
-  const { patthname } = useLocation();
+  const { pathname } = useLocation();
   const isOpen = isSuccessful || isError;
 
   const closeAllPopups = useCallback(() => {
@@ -237,7 +237,7 @@ function App() {
       <InfoTooltip
         name='successful'
         titleText={
-          patthname !== PATH.PROFILE ? MESSAGE.PROFILE_OK : MESSAGE.REGISTER_OK
+          pathname === PATH.PROFILE ? MESSAGE.PROFILE_OK : MESSAGE.REGISTER_OK
         }
         isOpen={isSuccessful}
         onClose={closeAllPopups}

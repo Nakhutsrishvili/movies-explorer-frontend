@@ -32,6 +32,7 @@
   background-color: var(--accent);
   color: var(--light);
   border-radius: 3px;
+  min-height: 45px;
 }
 
 .form__submit_disable {
