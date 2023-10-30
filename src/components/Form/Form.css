@@ -1,0 +1,49 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+}
+
+.form__submit {
+  cursor: pointer;
+}
+
+.form__submit:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.form__button {
+  background-color: transparent;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--warning);
+  padding: 0;
+  cursor: pointer;
+}
+
+.form__submit_auth {
+  margin-top: auto;
+  padding: 14px 15px 15px;
+  border: none;
+  background-color: var(--accent);
+  color: var(--light);
+  border-radius: 3px;
+  min-height: 45px;
+}
+
+.form__submit_disable {
+  background-color: var(--disable);
+  color: var(--disable-text);
+  cursor: auto;
+}
+
+@media (max-width: 520px) {
+  .form__submit_auth {
+    font-size: 12px;
+    padding: 15px 15px 16px;
+  }
+}

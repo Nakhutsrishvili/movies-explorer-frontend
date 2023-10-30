@@ -1,0 +1,13 @@
+.form__submit_search {
+  background-color: var(--accent);
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  background-image: url(../../images/search.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  right: 0;
+  top: 15px;
+}

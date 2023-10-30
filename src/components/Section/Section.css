@@ -1,0 +1,17 @@
+.heading {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.88px;
+  line-height: normal;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--dark);
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .heading {
+    font-size: 18px;
+    padding-bottom: 28px;
+    letter-spacing: -0.72px;
+  }
+}
