@@ -167,6 +167,11 @@ function App() {
     }
   };
 
+    useEffect(() => {
+    setMessageError('');
+    setFormActive(false);
+  }, [pathname]);
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page__container'>
