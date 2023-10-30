@@ -1,15 +1,15 @@
-import './App.css';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import ProtectedHomeElement from '../ProtectedHomeElement/ProtectedHomeElement';
-import { useCallback, useEffect, useState } from 'react';
-import CurrentUserContext from '../../contexts/CurrentUserContext';
-import NotFoundPage from '../NotFoundPage/NotFoundPage';
-import { MESSAGE, PATH } from '../../utils/constants';
-import * as mainApi from '../../utils/MainApi';
-import InfoTooltip from '../Popup/InfoTooltip/InfoTooltip';
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-import SendContext from '../../contexts/SendContext';
-import SavedMoviesContext from '../../contexts/SavedMoviesContext';
+import "./App.css";
+import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import ProtectedHomeElement from "../ProtectedHomeElement/ProtectedHomeElement";
+import { useCallback, useEffect, useState } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import { MESSAGE, PATH } from "../../utils/constants";
+import * as mainApi from "../../utils/MainApi";
+import InfoTooltip from "../Popup/InfoTooltip/InfoTooltip";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import SendContext from "../../contexts/SendContext";
+import SavedMoviesContext from "../../contexts/SavedMoviesContext";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(
@@ -21,7 +21,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const navigate = useNavigate();
   const [savedMovies, setSavedMovies] = useState([]);
-  const [messageError, setMessageError] = useState('');
+  const [messageError, setMessageError] = useState("");
   const [isFormActive, setFormActive] = useState(false);
   const { pathname } = useLocation();
   const isOpen = isSuccessful || isError;
@@ -33,14 +33,14 @@ function App() {
 
   useEffect(() => {
     function closePopupsByEsc(evt) {
-      if (evt.key === 'Escape') {
+      if (evt.key === "Escape") {
         closeAllPopups();
       }
     }
     if (isOpen) {
-      document.addEventListener('keydown', closePopupsByEsc);
+      document.addEventListener("keydown", closePopupsByEsc);
       return () => {
-        document.removeEventListener('keydown', closePopupsByEsc);
+        document.removeEventListener("keydown", closePopupsByEsc);
       };
     }
   }, [isOpen, closeAllPopups]);
@@ -152,7 +152,7 @@ function App() {
   };
 
   const handlsChangeProfile = async (values) => {
-    setMessageError('');
+    setMessageError("");
     setIsSend(true);
     try {
       const res = await mainApi.setUserInfo(values.forename, values.email);
@@ -167,14 +167,14 @@ function App() {
     }
   };
 
-    useEffect(() => {
-    setMessageError('');
+  useEffect(() => {
+    setMessageError("");
     setFormActive(false);
   }, [pathname]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className='page__container'>
+      <div className="page__container">
         <SendContext.Provider value={isSend}>
           <SavedMoviesContext.Provider value={savedMovies}>
             <Routes>
@@ -219,19 +219,27 @@ function App() {
               <Route
                 path={PATH.REGISTRATION}
                 element={
-                  <ProtectedHomeElement
-                    isLoggedIn={isLoggedIn}
-                    handleRegister={handleRegister}
-                  />
+                  isLoggedIn ? (
+                    <Navigate to={PATH.MOVIES} replace />
+                  ) : (
+                    <ProtectedHomeElement
+                      isLoggedIn={isLoggedIn}
+                      handleRegister={handleRegister}
+                    />
+                  )
                 }
               />
               <Route
                 path={PATH.LOGIN}
                 element={
-                  <ProtectedHomeElement
-                    isLoggedIn={isLoggedIn}
-                    handleLogin={handleLogin}
-                  />
+                  isLoggedIn ? (
+                    <Navigate to={PATH.MOVIES} replace />
+                  ) : (
+                    <ProtectedHomeElement
+                      isLoggedIn={isLoggedIn}
+                      handleLogin={handleLogin}
+                    />
+                  )
                 }
               />
               <Route path={PATH.OTHER} element={<NotFoundPage />} />
@@ -240,7 +248,7 @@ function App() {
         </SendContext.Provider>
       </div>
       <InfoTooltip
-        name='successful'
+        name="successful"
         titleText={
           pathname === PATH.PROFILE ? MESSAGE.PROFILE_OK : MESSAGE.REGISTER_OK
         }
@@ -249,7 +257,7 @@ function App() {
       />
 
       <InfoTooltip
-        name='error'
+        name="error"
         titleText={MESSAGE.REGISTER_ER}
         isOpen={isError}
         onClose={closeAllPopups}

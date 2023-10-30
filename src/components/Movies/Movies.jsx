@@ -1,13 +1,13 @@
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import SearchForm from '../SearchForm/SearchForm';
-import useFormValidation from '../../hooks/useForm';
-import './Movies.css';
-import { useSearch } from '../../hooks/useSearch';
-import { useEffect, useState } from 'react';
-import { DEVICE } from '../../utils/constants';
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import SearchForm from "../SearchForm/SearchForm";
+import useFormValidation from "../../hooks/useForm";
+import "./Movies.css";
+import { useSearch } from "../../hooks/useSearch";
+import { useEffect, useState } from "react";
+import { DEVICE } from "../../utils/constants";
 
 const Movies = ({ ...props }) => {
-  const [values, setValues] = useState({ search: '', short: false });
+  const [values, setValues] = useState({ search: "", short: false });
   const { errors, isValid, isInputValid, handleChange } = useFormValidation(
     values,
     setValues
@@ -20,7 +20,7 @@ const Movies = ({ ...props }) => {
   const [moreMovies, setMoreMovies] = useState(DEVICE.desctop.moreMovies);
   const [device, setDevice] = useState(DEVICE.desctop.device);
   const [isShowButton, setShowButton] = useState(false);
-console.log(values);
+  console.log(values);
   useEffect(() => {
     const handleChangeDevice = () => {
       if (window.innerWidth >= DEVICE.desctop.width) {
@@ -32,10 +32,10 @@ console.log(values);
       }
     };
     handleChangeDevice();
-    window.addEventListener('resize', handleChangeDevice);
+    window.addEventListener("resize", handleChangeDevice);
 
     return () => {
-      window.removeEventListener('resize', handleChangeDevice);
+      window.removeEventListener("resize", handleChangeDevice);
     };
   }, [device]);
 
@@ -57,10 +57,10 @@ console.log(values);
   const handleClickMore = () => {
     setMaxMovies((maxMovies) => maxMovies + moreMovies);
   };
-  
+
   return (
     <>
-      <section className='search'>
+      <section className="search">
         <SearchForm
           values={values}
           errors={errors}

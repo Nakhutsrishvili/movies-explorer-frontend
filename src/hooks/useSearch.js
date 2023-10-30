@@ -1,15 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
-import { SHORT_DURATION, MESSAGE, PATH } from '../utils/constants';
-import { getMovies } from '../utils/MoviesApi';
-import { useLocation } from 'react-router-dom';
-import SavedMoviesContext from '../contexts/SavedMoviesContext';
+import { useContext, useEffect, useState } from "react";
+import { SHORT_DURATION, MESSAGE, PATH } from "../utils/constants";
+import { getMovies } from "../utils/MoviesApi";
+import { useLocation } from "react-router-dom";
+import SavedMoviesContext from "../contexts/SavedMoviesContext";
 
 export const useSearch = (values, setValues) => {
   const [allMovies, setAllMovies] = useState([]);
   const [movies, setMovies] = useState([]);
   const { pathname } = useLocation();
   const [isLoading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const savedMovies = useContext(SavedMoviesContext);
 
   const filterMovies = (moviesList) => {
@@ -32,7 +32,7 @@ export const useSearch = (values, setValues) => {
   };
 
   useEffect(() => {
-    if ('allMovies' in localStorage && pathname === PATH.MOVIES) {
+    if ("allMovies" in localStorage && pathname === PATH.MOVIES) {
       setAllMovies(JSON.parse(localStorage.allMovies));
       setValues(JSON.parse(localStorage.values));
       search();
@@ -42,7 +42,6 @@ export const useSearch = (values, setValues) => {
   }, []);
 
   const search = () => {
-    console.log(123);
     if (pathname === PATH.MOVIES) {
       localStorage.values = JSON.stringify(values);
       setMovies(filterMovies(allMovies));
@@ -56,15 +55,15 @@ export const useSearch = (values, setValues) => {
   }, [values]);
 
   useEffect(() => {
-    if ('allMovies' in localStorage && movies.length === 0) {
+    if ("allMovies" in localStorage && movies.length === 0) {
       setMessage(MESSAGE.NO_MOVIES);
     }
   }, [movies]);
 
   const handldeSearch = async (evt) => {
     evt.preventDefault();
-    setMessage('');
-    if (!('allMovies' in localStorage) && pathname === PATH.MOVIES) {
+    setMessage("");
+    if (!("allMovies" in localStorage) && pathname === PATH.MOVIES) {
       try {
         setLoading(true);
         localStorage.values = JSON.stringify(values);
